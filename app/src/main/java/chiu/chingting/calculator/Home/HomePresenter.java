@@ -35,7 +35,7 @@ public class HomePresenter<P> implements HomeContract.Presenter {
 
     @Override
     public void performRequest(Context context) {
-        Log.d("tttt", "performRegit initquest");
+        Log.d("tttt", "performRequest");
         mHomeView.showProgressDialog();
     }
 }
