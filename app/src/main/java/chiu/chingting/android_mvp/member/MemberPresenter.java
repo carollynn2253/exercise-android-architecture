@@ -1,4 +1,4 @@
-package chiu.chingting.android_mvp.Home;
+package chiu.chingting.android_mvp.member;
 
 import android.content.Context;
 import android.os.Handler;
@@ -8,16 +8,16 @@ import android.util.Log;
 import chiu.chingting.android_mvp.GlobalConstance;
 import chiu.chingting.android_mvp.model.MemberInfo;
 
-public class HomePresenter implements HomeContract.Presenter {
+public class MemberPresenter implements MemberContract.Presenter {
 
     Context context;
 
     @NonNull
-    private HomeContract.View mHomeView;
+    private MemberContract.View mMemberView;
 
 
-    public HomePresenter(@NonNull HomeContract.View mHomeView) {
-        this.mHomeView = mHomeView;
+    public MemberPresenter(@NonNull MemberContract.View mMemberView) {
+        this.mMemberView = mMemberView;
     }
 
     @Override
@@ -29,7 +29,8 @@ public class HomePresenter implements HomeContract.Presenter {
     @Override
     public void start() {
         Log.d(GlobalConstance.TAG, "start");
-        mHomeView.initView(context, "INIT VIEW");
+        mMemberView.initView(context, "INIT VIEW");
+        performRequest(context);
     }
 
     @Override
@@ -39,8 +40,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void performRequest(Context context) {
-        Log.d(GlobalConstance.TAG, "performRequest");
-        mHomeView.showProgressDialog();
+        mMemberView.showProgressDialog();
 
 
         //got response
@@ -48,9 +48,9 @@ public class HomePresenter implements HomeContract.Presenter {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                mHomeView.dismissProgressDialog();
-                MemberInfo result = new MemberInfo("CCT", "detail of CCT");
-                mHomeView.setViews(result);
+                mMemberView.dismissProgressDialog();
+                MemberInfo result = new MemberInfo("Ching Ting, Chiu", "detail of Ching Ting, Chiu");
+                mMemberView.setViews(result);
             }
         }, GlobalConstance.REQUEST_DURATION);
     }

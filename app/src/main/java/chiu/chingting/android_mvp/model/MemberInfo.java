@@ -5,11 +5,22 @@ package chiu.chingting.android_mvp.model;
  */
 
 public class MemberInfo {
+    private String name = "";
+    private String detail = "";
 
     public MemberInfo() {
     }
 
-    public String getMemberName() {
-        return "CCT";
+    public MemberInfo(String name, String detail) {
+        this.name = name;
+        this.detail = detail;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDetail() {
+        return detail;
     }
 }

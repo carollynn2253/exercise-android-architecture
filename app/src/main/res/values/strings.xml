@@ -3,4 +3,7 @@
 
     <string name="start">Start</string>
     <string name="initByData">initView</string>
+    <string name="launch_member">GO TO MEMBER</string>
+
+    <string name="member_hello_string">Hello %s!</string>
 </resources>
