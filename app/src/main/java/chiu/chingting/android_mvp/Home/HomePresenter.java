@@ -1,12 +1,12 @@
-package chiu.chingting.calculator.Home;
+package chiu.chingting.android_mvp.Home;
 
 import android.content.Context;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import chiu.chingting.calculator.GlobalConstance;
-import chiu.chingting.calculator.model.MemberInfo;
+import chiu.chingting.android_mvp.GlobalConstance;
+import chiu.chingting.android_mvp.model.MemberInfo;
 
 public class HomePresenter implements HomeContract.Presenter {
 

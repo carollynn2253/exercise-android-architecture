@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="chiu.chingting.calculator">
+    package="chiu.chingting.android_mvp">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Home.HomeActivity">
+        <activity android:name="chiu.chingting.android_mvp.Home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

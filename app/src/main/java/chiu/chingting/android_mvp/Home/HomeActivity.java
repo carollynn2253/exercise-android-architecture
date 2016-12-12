@@ -1,4 +1,4 @@
-package chiu.chingting.calculator.Home;
+package chiu.chingting.android_mvp.Home;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -8,10 +8,10 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import chiu.chingting.calculator.BaseActivity;
-import chiu.chingting.calculator.GlobalConstance;
-import chiu.chingting.calculator.R;
-import chiu.chingting.calculator.model.MemberInfo;
+import chiu.chingting.android_mvp.BaseActivity;
+import chiu.chingting.android_mvp.GlobalConstance;
+import chiu.chingting.android_mvp.R;
+import chiu.chingting.android_mvp.model.MemberInfo;
 
 
 public class HomeActivity extends BaseActivity implements HomeContract.View {

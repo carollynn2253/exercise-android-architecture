@@ -1,10 +1,10 @@
-package chiu.chingting.calculator.Home;
+package chiu.chingting.android_mvp.Home;
 
 import android.content.Context;
 
-import chiu.chingting.calculator.BasePresenter;
-import chiu.chingting.calculator.BaseView;
-import chiu.chingting.calculator.model.MemberInfo;
+import chiu.chingting.android_mvp.BasePresenter;
+import chiu.chingting.android_mvp.BaseView;
+import chiu.chingting.android_mvp.model.MemberInfo;
 
 
 public interface HomeContract {

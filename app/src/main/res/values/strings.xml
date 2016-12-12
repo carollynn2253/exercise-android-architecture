@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">Android-MVP</string>
 
     <string name="start">Start</string>
     <string name="initByData">initView</string>
