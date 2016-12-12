@@ -9,11 +9,12 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import chiu.chingting.calculator.BaseActivity;
+import chiu.chingting.calculator.GlobalConstance;
 import chiu.chingting.calculator.R;
 import chiu.chingting.calculator.model.MemberInfo;
 
 
-public class HomeActivity extends BaseActivity implements HomeContract.View<MemberInfo> {
+public class HomeActivity extends BaseActivity implements HomeContract.View {
 
     private HomeContract.Presenter presenter;
 
@@ -28,56 +29,49 @@ public class HomeActivity extends BaseActivity implements HomeContract.View<Memb
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        progressDialog = new ProgressDialog(this);
-
-        presenter = new HomePresenter<MemberInfo>(this);
-        presenter.create(this);
-    }
-
-    @Override
     public void setPresenter(HomeContract.Presenter presenter) {
         this.presenter = presenter;
     }
 
-    @OnClick(R.id.start_button)
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        progressDialog = new ProgressDialog(this);
+
+        presenter = new HomePresenter(this);
+        presenter.create(this);
+        presenter.start(); //initView
+    }
+
+    //perform method
+    @OnClick(R.id.button1)
     void getData() {
-        presenter.start();
         presenter.performRequest(this);
     }
 
-    @OnClick(R.id.stop_button)
-    void stop() {
-        presenter.stop();
-    }
-
-    //HomeContract
+    //define method content for Presenter
     @Override
     public void initView(Context context, String title) {
-        Log.d("tttt", "initView");
-
+        Log.d(GlobalConstance.TAG, "initView");
         text.setText(title);
     }
 
-    //HomeContract
     @Override
     public void showProgressDialog() {
-        Log.d("tttt", "show PD");
+        Log.d(GlobalConstance.TAG, "show PD");
         progressDialog.show();
     }
 
-    //HomeContract
     @Override
     public void dismissProgressDialog() {
-        Log.d("tttt", "dismiss PD");
+        Log.d(GlobalConstance.TAG, "dismiss PD");
         progressDialog.dismiss();
     }
 
-    //HomeContract
     @Override
     public void setViews(MemberInfo data) {
-        Log.d("tttt", "got data! " + data.getMemberName());
+        Log.d(GlobalConstance.TAG, "got data! " + data.getMemberName());
 
+        text.setText(data.getMemberName());
     }
 }

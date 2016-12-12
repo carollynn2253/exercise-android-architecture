@@ -1,10 +1,14 @@
 package chiu.chingting.calculator.Home;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-public class HomePresenter<P> implements HomeContract.Presenter {
+import chiu.chingting.calculator.GlobalConstance;
+import chiu.chingting.calculator.model.MemberInfo;
+
+public class HomePresenter implements HomeContract.Presenter {
 
     Context context;
 
@@ -18,24 +22,36 @@ public class HomePresenter<P> implements HomeContract.Presenter {
 
     @Override
     public void create(Context context) {
-        Log.d("tttt", "create");
+        Log.d(GlobalConstance.TAG, "create");
         this.context = context;
     }
 
     @Override
     public void start() {
-        Log.d("tttt", "start");
+        Log.d(GlobalConstance.TAG, "start");
+        mHomeView.initView(context, "INIT VIEW");
     }
 
     @Override
     public void stop() {
-        Log.d("tttt", "stop");
-        mHomeView.initView(context, "STOPPED");
+        Log.d(GlobalConstance.TAG, "stop");
     }
 
     @Override
     public void performRequest(Context context) {
-        Log.d("tttt", "performRequest");
+        Log.d(GlobalConstance.TAG, "performRequest");
         mHomeView.showProgressDialog();
+
+
+        //got response
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mHomeView.dismissProgressDialog();
+                MemberInfo result = new MemberInfo();
+                mHomeView.setViews(result);
+            }
+        }, GlobalConstance.REQUEST_DURATION);
     }
 }
