@@ -49,7 +49,7 @@ public class HomePresenter implements HomeContract.Presenter {
             @Override
             public void run() {
                 mHomeView.dismissProgressDialog();
-                MemberInfo result = new MemberInfo("CCT", "detail of CCT");
+                MemberInfo result = new MemberInfo("CCT", "Detail of CCT");
                 mHomeView.setViews(result);
             }
         }, GlobalConstance.REQUEST_DURATION);
