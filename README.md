@@ -1,9 +1,10 @@
 # exercise-android-architecture
 
 
-Try using following things.
+<h3>Try using following things.</h3>
 
-1.android-architecture.
+<p>1.android-architecture.</p>
 https://github.com/googlesamples/android-architecture
-2.RxPermission
+
+<p>2.RxPermission</p>
 https://github.com/tbruyelle/RxPermissions
