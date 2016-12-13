@@ -5,9 +5,10 @@
     <string name="home_b_member">GO TO MEMBER</string>
 
     <string name="member_hello_string">Hello %s!</string>
-    <string name="member_b_open_camera">Open Camera</string>
+    <string name="member_b_request_permission">Request Permissions</string>
 
 
-    <string name="permission_camera_deny">Camera permission denied, can not open camera.</string>
-    <string name="permission_camera_deny_permanently">Camera permission denied, please open permission in setting.</string>
+    <string name="permission_allow">Got %s permission !</string>
+    <string name="permission_deny">%s permission denied.</string>
+    <string name="permission_deny_permanently">%s permission denied, please allow permission in setting.</string>
 </resources>

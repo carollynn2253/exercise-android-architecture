@@ -6,7 +6,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -34,7 +33,7 @@ public class MemberActivity extends BaseActivity implements MemberContract.View 
     TextView helloString;
     @BindView(R.id.detail)
     TextView detail;
-    @BindView(R.id.open_camera)
+    @BindView(R.id.request_permissions)
     Button openCamera;
 
     private RxPermissions rxPermissions;
@@ -67,27 +66,27 @@ public class MemberActivity extends BaseActivity implements MemberContract.View 
         helloString.setText(getString(R.string.member_hello_string, "Ching Ting, Chiu"));
     }
 
-    @OnClick(R.id.open_camera)
-    void openCamera() {
+    @OnClick(R.id.request_permissions)
+    void requestPermissions() {
         rxPermissions
-                .requestEach(Manifest.permission.CAMERA)
+                .requestEach(Manifest.permission.CAMERA, Manifest.permission.READ_PHONE_STATE)
                 .subscribe(permission -> {
+                    String permissionName = permission.name.substring(permission.name.lastIndexOf(".") + 1);
                     if (permission.granted) {
                         // Permission is granted !
-                        Log.d(TAG, "got camera permission!");
                         Toast.makeText(MemberActivity.this,
-                                "got camera permission!",
+                                getString(R.string.permission_allow, permissionName),
                                 Toast.LENGTH_SHORT).show();
                     } else if (permission.shouldShowRequestPermissionRationale) {
                         // Denied permission without ask never again
                         Toast.makeText(MemberActivity.this,
-                                getString(R.string.permission_camera_deny),
+                                getString(R.string.permission_deny, permissionName),
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         // Denied permission with ask never again
                         // Need to go to the settings
                         Toast.makeText(MemberActivity.this,
-                                getString(R.string.permission_camera_deny_permanently),
+                                getString(R.string.permission_deny_permanently, permissionName),
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
