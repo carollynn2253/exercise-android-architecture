@@ -1,14 +1,15 @@
-package chiu.chingting.calculator.Home;
+package chiu.chingting.android_mvp.Home;
 
 import android.content.Context;
 
-import chiu.chingting.calculator.BasePresenter;
-import chiu.chingting.calculator.BaseView;
+import chiu.chingting.android_mvp.BasePresenter;
+import chiu.chingting.android_mvp.BaseView;
+import chiu.chingting.android_mvp.model.MemberInfo;
 
 
 public interface HomeContract {
 
-    interface View<T> extends BaseView<HomeContract.Presenter> {
+    interface View extends BaseView<HomeContract.Presenter> {
 
         void initView(Context context, String title);
 
@@ -16,8 +17,7 @@ public interface HomeContract {
 
         void dismissProgressDialog();
 
-        void setViews(T data);
-
+        void setViews(MemberInfo data);
     }
 
     interface Presenter extends BasePresenter {

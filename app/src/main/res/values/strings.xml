@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">Android-MVP</string>
 
     <string name="start">Start</string>
-    <string name="stop">Stop</string>
+    <string name="initByData">initView</string>
+    <string name="launch_member">GO TO MEMBER</string>
+
+    <string name="member_hello_string">Hello %s!</string>
 </resources>

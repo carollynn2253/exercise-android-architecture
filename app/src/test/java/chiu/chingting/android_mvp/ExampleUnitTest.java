@@ -1,4 +1,4 @@
-package chiu.chingting.calculator;
+package chiu.chingting.android_mvp;
 
 import org.junit.Test;
 
