@@ -49,7 +49,7 @@ public class MemberPresenter implements MemberContract.Presenter {
             @Override
             public void run() {
                 mMemberView.dismissProgressDialog();
-                MemberInfo result = new MemberInfo("Ching Ting, Chiu", "detail of Ching Ting, Chiu");
+                MemberInfo result = new MemberInfo("Ching Ting, Chiu", "Detail of Ching Ting, Chiu");
                 mMemberView.setViews(result);
             }
         }, GlobalConstance.REQUEST_DURATION);
